@@ -13,5 +13,19 @@ fs.readFile('input.txt', 'utf-8', (e, data)=>{
         allDistances += Math.abs(leftItems[i] - rightItems[i])
     }
 
-    console.log(allDistances); // PART ONE
+    // console.log(allDistances); // PART ONE
+
+    let similarityScore = 0
+
+    for (let i = 0; i < leftItems.length; i++) {
+        
+        const apearingInRight = rightItems.filter((num) => num === leftItems[i]).length || 0;
+
+        // console.log(apearingInRight);
+    
+        similarityScore += leftItems[i] * apearingInRight
+    }
+
+    console.log(similarityScore); // PART TWO
+
 })
